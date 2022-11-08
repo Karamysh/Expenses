@@ -2,9 +2,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+import { useState } from 'react';
 
 import RecentScreen from './screens/RecentScreen';
 import AllExpensesScreen from './screens/AllExpensesScreen';
+import ExpenseItem from './components/ExpenseItem';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -13,20 +16,29 @@ export default function App() {
     <NavigationContainer>
       <BottomTab.Navigator
         screenOptions={{
-          headerStyle: { backgroundColor: '#3c0a6d' },
+          headerStyle: { backgroundColor: '#3c0a6b' },
           headerTintColor: 'white',
+          tabBarActiveTintColor: '#3c0a6b',
         }}
       >
-        <BottomTab.Screen name="Recent" component={RecentScreen} options={{}} />
+        <BottomTab.Screen
+          name="Recent"
+          component={RecentScreen}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="time-outline" color={color} size={size} />
+            ),
+          }}
+        />
         <BottomTab.Screen
           name="AllExpenses"
           component={AllExpensesScreen}
-          options={{}}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="calendar-outline" color={'red'} size={size} />
+            ),
+          }}
         />
-        {/* <View style={styles.container}>
-          <RecentScreen />
-          <StatusBar style="auto" />
-        </View> */}
       </BottomTab.Navigator>
     </NavigationContainer>
   );
