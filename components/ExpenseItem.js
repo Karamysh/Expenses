@@ -3,12 +3,13 @@ import { StyleSheet, View, Text, Pressable } from 'react-native';
 function ExpenseItem(props) {
   return (
     <View style={styles.expenseItem}>
-      <Pressable
+      <Text>sSSSS</Text>
+      {/* <Pressable
         android_ripple={{ color: '#210644' }}
         onPress={props.onDeleteItem.bind(this, props.id)}
       >
         <Text style={styles.expenseText}>{props.text}</Text>
-      </Pressable>
+      </Pressable> */}
     </View>
   );
 }

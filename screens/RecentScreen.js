@@ -1,36 +1,44 @@
-import { StyleSheet, TextInput, View, Button, FlatList } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Button,
+  FlatList,
+} from 'react-native';
 import { useState } from 'react';
 import { ExpenseItem } from '../components/ExpenseItem';
 
 function RecentScreen() {
-  const [enteredExpense, setEnteredExpense] = useState('');
-  const [expenses, setExpenses] = useState([]);
+  // const [enteredExpense, setEnteredExpense] = useState('');
+  // const [expenses, setExpenses] = useState([]);
 
-  function expenseInputHandler(enteredExp) {
-    setEnteredExpense(enteredExp);
-  }
+  // function expenseInputHandler(enteredExp) {
+  //   setEnteredExpense(enteredExp);
+  // }
 
-  function addExpenseHandler() {
-    props.onAddExpense(enteredExpense);
-    setEnteredExpense('');
-  }
+  // function addExpenseHandler() {
+  //   props.onAddExpense(enteredExpense);
+  //   setEnteredExpense('');
+  // }
 
-  function addExpenseHandler(enteredExpText) {
-    setExpenses((currentExpense) => [
-      ...currentExpense,
-      { text: enteredExpText, id: Math.random().toString() },
-    ]);
-  }
+  // function addExpenseHandler(enteredExpText) {
+  //   setExpenses((currentExpense) => [
+  //     ...currentExpense,
+  //     { text: enteredExpText, id: Math.random().toString() },
+  //   ]);
+  // }
 
-  function deleteExpenseHandler(id) {
-    setExpenses((currentExpenses) => {
-      return currentExpenses.filter((exp) => exp.id !== id);
-    });
-  }
+  // function deleteExpenseHandler(id) {
+  //   setExpenses((currentExpenses) => {
+  //     return currentExpenses.filter((exp) => exp.id !== id);
+  //   });
+  // }
 
   return (
     <View style={styles.rootContainer}>
-      <TextInput
+      <Text>SMTH</Text>
+      {/* <TextInput
         style={styles.textInput}
         placeholder="Your expenses"
         onChangeText={expenseInputHandler}
@@ -59,7 +67,7 @@ function RecentScreen() {
             }}
           />
         </View>
-      </View>
+      </View> */}
     </View>
   );
 }
