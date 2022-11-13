@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { useState } from 'react';
 import { ExpenseItem } from '../components/ExpenseItem';
+import ExpensesOutput from '../components/ExpensesOutput/ExpensesOutput';
 
 function RecentScreen() {
   // const [enteredExpense, setEnteredExpense] = useState('');
@@ -37,7 +38,7 @@ function RecentScreen() {
 
   return (
     <View style={styles.rootContainer}>
-      <Text>SMTH</Text>
+      <ExpensesOutput expensesPeriod="Last 7 days" />
       {/* <TextInput
         style={styles.textInput}
         placeholder="Your expenses"
