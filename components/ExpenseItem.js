@@ -3,12 +3,19 @@ import { GlobalStyles } from '../constants/styles';
 import { getFormatedDate } from '../util/date';
 
 function ExpenseItem({ description, amount, date }) {
+  function expensePressHandler() {}
+
   return (
-    <Pressable
-      android_ripple={{ color: '#210644' }}
-      // onPress={props.onDeleteItem.bind(this, props.id)}
-    >
-      <View style={styles.expenseItem}>
+    <View style={styles.container}>
+      <Pressable
+        style={styles.expenseItem}
+        onPress={expensePressHandler}
+        android_ripple={{
+          color: '#210644',
+          borderless: true,
+          radius: 1000,
+        }}
+      >
         <View>
           <Text style={[styles.textBase, styles.description]}>
             {description}
@@ -18,25 +25,27 @@ function ExpenseItem({ description, amount, date }) {
         <View style={styles.amountContainer}>
           <Text style={styles.amount}>{amount.toFixed(2)}</Text>
         </View>
-      </View>
-    </Pressable>
+      </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  expenseItem: {
-    padding: 12,
-    marginVertical: 8,
-    borderRadius: 6,
-    backgroundColor: GlobalStyles.colors.primary500,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  container: {
     borderRadius: 6,
     elevation: 3,
     shadowColor: GlobalStyles.colors.gray500,
     shadowRadius: 4,
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.4,
+    padding: 12,
+    marginVertical: 8,
+    backgroundColor: GlobalStyles.colors.primary500,
+  },
+
+  expenseItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   textBase: {
     color: GlobalStyles.colors.primary50,
