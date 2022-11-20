@@ -39,36 +39,6 @@ function RecentScreen() {
   return (
     <View style={styles.rootContainer}>
       <ExpensesOutput expensesPeriod="Last 7 days" />
-      {/* <TextInput
-        style={styles.textInput}
-        placeholder="Your expenses"
-        onChangeText={expenseInputHandler}
-        value={enteredExpense}
-      />
-      <View style={styles.button}>
-        <Button
-          title="Add Expense"
-          onPress={addExpenseHandler}
-          color="#5e0acc"
-        />
-        <View style={styles.goalsContainer}>
-          <FlatList
-            data={expenses}
-            renderItem={(itemData) => {
-              return (
-                <ExpenseItem
-                  text={itemData.item.text}
-                  id={itemData.item.id}
-                  onDeleteItem={deleteExpenseHandler}
-                />
-              );
-            }}
-            keyExtractor={(item, index) => {
-              return item.id;
-            }}
-          />
-        </View>
-      </View> */}
     </View>
   );
 }
@@ -78,9 +48,6 @@ export default RecentScreen;
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    // marginTop: 100,
-    alignItems: 'center',
-    // backgroundColor: '#546522',
   },
   textInput: {
     borderWidth: 1,
