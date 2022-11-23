@@ -1,44 +1,28 @@
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  Button,
-  FlatList,
-} from 'react-native';
-import { useState } from 'react';
-import { ExpenseItem } from '../components/ExpenseItem';
+import { StyleSheet, View } from 'react-native';
+import { useContext } from 'react';
 import ExpensesOutput from '../components/ExpensesOutput/ExpensesOutput';
+import { ExpensesContext } from '../store/expenses-context';
+import { getDateMinusDays } from '../util/date';
 
 function RecentScreen() {
-  // const [enteredExpense, setEnteredExpense] = useState('');
-  // const [expenses, setExpenses] = useState([]);
+  const expensesCtx = useContext(ExpensesContext);
 
-  // function expenseInputHandler(enteredExp) {
-  //   setEnteredExpense(enteredExp);
-  // }
+  const recentExpenses = expensesCtx.expenses.filter((expense) => {
+    const today = new Date();
+    const date7DaysAgo = getDateMinusDays(today, 7);
 
-  // function addExpenseHandler() {
-  //   props.onAddExpense(enteredExpense);
-  //   setEnteredExpense('');
-  // }
+    return expense.date > date7DaysAgo;
+  });
 
-  // function addExpenseHandler(enteredExpText) {
-  //   setExpenses((currentExpense) => [
-  //     ...currentExpense,
-  //     { text: enteredExpText, id: Math.random().toString() },
-  //   ]);
-  // }
-
-  // function deleteExpenseHandler(id) {
-  //   setExpenses((currentExpenses) => {
-  //     return currentExpenses.filter((exp) => exp.id !== id);
-  //   });
-  // }
+  // console.log(expensesCtx);
 
   return (
     <View style={styles.rootContainer}>
-      <ExpensesOutput expensesPeriod="Last 7 days" />
+      <ExpensesOutput
+        expenses={recentExpenses}
+        expensesPeriod="Last 7 days"
+        fallbackText="No expenses registered for the last 7 days."
+      />
     </View>
   );
 }
